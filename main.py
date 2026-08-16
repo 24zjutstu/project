@@ -78,7 +78,6 @@ vol_ma20 = df.groupby('stock')['成交量'].transform(lambda x:x.rolling(20).mea
 df['成交量趋势'] = vol_ma5 / vol_ma20 - 1
 
 df['future_20'] = df.groupby('stock')['收盘'].shift(-20) / df['收盘'] - 1
-df['future_20'] = df['future_20'].ffill()
 
 # 复合因子
 factor_cols = ['指数动量', '负RSI', '波动率','负换手率' ,'成交量趋势']
